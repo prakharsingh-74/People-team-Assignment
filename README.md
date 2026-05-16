@@ -19,7 +19,6 @@
 - [API Reference](#-api-reference)
 - [Authentication Flow](#-authentication-flow)
 - [Note Lifecycle & Sequence Diagrams](#-note-lifecycle--sequence-diagrams)
-- [Scalability — Google Keep Scale](#-scalability--google-keep-scale)
 - [Security Design](#-security-design)
 - [Environment Variables](#-environment-variables)
 - [Testing the API](#-testing-the-api)
