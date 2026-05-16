@@ -98,8 +98,8 @@ curl http://localhost:3000/about
 Expected response:
 ```json
 {
-  "name": "Antigravity AI",
-  "email": "antigravity@example.com",
+  "name": "Prakhar Singh",
+  "email": "prakharsingh74@gmail.com",
   "my features": { ... }
 }
 ```

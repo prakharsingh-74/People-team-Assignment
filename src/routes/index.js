@@ -17,8 +17,8 @@ router.use('/notes', notesRoutes);
 // About & OpenAPI
 router.get('/about', (req, res) => {
     res.json({
-        name: "Antigravity AI",
-        email: "antigravity@example.com",
+        name: "Prakhar Singh",
+        email: "prakharsingh74@gmail.com",
         "my features": {
             "Labels & Filtering": "Added a system to tag notes with labels for better organization. Chosen because note categorization is essential for productivity apps.",
             "Full-text Search": "Implemented using SQLite FTS5 for fast and efficient searching through note titles and content.",
