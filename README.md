@@ -81,7 +81,6 @@ JWT_SECRET=replace_this_with_a_long_random_secret
 NODE_ENV=development
 ```
 
-> ⚠️ **Never commit your `.env` file.** It is already in `.gitignore`.
 
 ### 4. Start the server
 
@@ -595,13 +594,6 @@ sequenceDiagram
     API-->>User: 200 OK [matching notes...]
 ```
 
----
-
-## 📈 Scalability — Google Keep Scale
-
-Google Keep serves **~500 million users**. Here is an analysis of what this app does right today and what changes you'd make to scale it.
-
-### What this app already does well
 
 | Pattern | Implementation | Benefit |
 |---|---|---|
@@ -612,19 +604,6 @@ Google Keep serves **~500 million users**. Here is an analysis of what this app 
 | **Cascade deletes** | SQLite FK constraints | Database integrity maintained automatically |
 | **Ownership isolation** | All queries include `user_id` filter | Users are naturally data-isolated |
 
-### Path to Google Keep Scale
-
-```mermaid
-graph TD
-    A["📱 Current: SQLite + Single Node.js"] --> B["Step 1: PostgreSQL\nHandle millions of rows\n+ connection pooling"]
-    B --> C["Step 2: Redis Cache\nCache /notes responses\nInvalidate on write"]
-    C --> D["Step 3: Node.js Cluster\n+ Load Balancer\nUse all CPU cores"]
-    D --> E["Step 4: Message Queue\ne.g. BullMQ\nAsync share notifications"]
-    E --> F["Step 5: CDN + Read Replicas\nDistributed reads globally"]
-    F --> G["🌍 Google Keep Scale\n500M users"]
-```
-
-### Scalability Decisions Explained
 
 **1. Why SQLite is fine for assignment scope but needs to change for scale:**
 SQLite uses a single-writer model — only one write at a time per database file. For a real production app, you'd swap SQLite for **PostgreSQL** with a connection pool (e.g. `pg` + `pgbouncer`). The query logic in this app is 100% SQL-standard and would require minimal changes to migrate.
@@ -718,9 +697,3 @@ curl "http://localhost:3000/notes?limit=5&offset=0" \
 curl "http://localhost:3000/notes?label=Work" \
   -H "Authorization: Bearer TOKEN"
 ```
-
----
-
-## 📄 License
-
-ISC © Prakhar Singh
